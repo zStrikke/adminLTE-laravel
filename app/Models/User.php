@@ -41,4 +41,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the notations that the user wrote.
+     */
+    public function notations()
+    {
+        return $this->hasMany(Notation::class);
+    }
 }
