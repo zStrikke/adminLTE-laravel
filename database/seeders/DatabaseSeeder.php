@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DailyReport;
 use App\Models\PredefinedAnswer;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ClientSeeder::class,
             NotationSeeder::class,
             PredefinedAnswerSeeder::class,
+            DailyReportSeeder::class,
         ]);
     }
 }

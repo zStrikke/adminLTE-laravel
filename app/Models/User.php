@@ -49,4 +49,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Notation::class);
     }
+
+    /**
+     * Get the daily reports of the user.
+     */
+    public function daily_reports()
+    {
+        return $this->hasMany(DailyReport::class);
+    }
 }
