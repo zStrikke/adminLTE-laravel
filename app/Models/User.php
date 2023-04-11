@@ -55,6 +55,6 @@ class User extends Authenticatable
      */
     public function daily_reports()
     {
-        return $this->hasMany(DailyReport::class);
+        return $this->hasMany(DailyReport::class)->orderBy('created_at', 'desc');
     }
 }
