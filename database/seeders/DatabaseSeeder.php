@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             NotationSeeder::class,
             PredefinedAnswerSeeder::class,
             DailyReportSeeder::class,
+            TicketSeeder::class,
         ]);
     }
 }

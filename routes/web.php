@@ -15,22 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //dd(\Carbon\Carbon::now()->endOfWeek()->format('Y-m-d H:i'));
-    $reports =  DailyReport::orderBy('created_at', 'desc')
-    ->whereBetween(
-        'created_at', [
-            \Carbon\Carbon::now()->startOfWeek()->format('Y-m-d'),
-            \Carbon\Carbon::now()->endOfWeek()->format('Y-m-d')
-        ]
-    )
-    ->with('user')
-    ->get()
-    ->groupBy(function($item, $key){
-        return $item->created_at->format('Y-m-d');
-    });
-    //dd($reports);
-    //$user = User::find(1)->loadMissing('daily_reports');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
-    return view('welcome')->with(compact('reports'));
-});
+Route::prefix('admin')
+        ->name('admin.')
+        ->group(function(){
+            Route::resource('/tickets', App\Http\Controllers\TicketController::class);
+        });
